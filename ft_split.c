@@ -6,7 +6,7 @@
 /*   By: mchiboub <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/04 15:04:07 by mchiboub          #+#    #+#             */
-/*   Updated: 2023/02/05 17:49:31 by mchiboub         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:10:08 by mchiboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,6 +84,8 @@ char	**ft_split(char const *s, char c)
 	int		index;
 	int		i;
 
+	if (!s)
+		return (NULL);
 	words = count_words(s, c);
 	split = malloc(sizeof(char *) * (words + 1));
 	if (!split)

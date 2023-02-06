@@ -6,7 +6,7 @@
 #    By: mchiboub <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/02 09:43:15 by mchiboub          #+#    #+#              #
-#    Updated: 2023/02/05 19:57:46 by mchiboub         ###   ########.fr        #
+#    Updated: 2023/02/06 11:49:13 by mchiboub         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -40,7 +40,13 @@ FILES = ft_isalpha.c \
 		ft_strjoin.c \
 		ft_strtrim.c \
 		ft_split.c \
-		ft_itoa.c
+		ft_itoa.c \
+		ft_strmapi.c \
+		ft_striteri.c \
+		ft_putchar_fd.c \
+		ft_putstr_fd.c \
+		ft_putendl_fd.c \
+		ft_putnbr_fd.c
 
 OBJS = $(FILES:.c=.o)
 RM = rm -f

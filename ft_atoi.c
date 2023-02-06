@@ -6,7 +6,7 @@
 /*   By: mchiboub <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/03 13:22:10 by mchiboub          #+#    #+#             */
-/*   Updated: 2023/02/03 15:40:04 by mchiboub         ###   ########.fr       */
+/*   Updated: 2023/02/06 18:25:35 by mchiboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,6 @@ int	ft_atoi(const char *nptr)
 	int	neg;
 	int	nb;
 
-	if (!nptr)
-		return (0);
 	i = 0;
 	while ((nptr[i] >= 9 && nptr[i] <= 13) || nptr[i] == ' ')
 		i++;

@@ -6,7 +6,7 @@
 /*   By: mchiboub <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/05 17:55:09 by mchiboub          #+#    #+#             */
-/*   Updated: 2023/02/05 20:47:49 by mchiboub         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:20:52 by mchiboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,18 +30,12 @@ static int	check_size(long int n)
 	return (size);
 }
 
-char	*ft_itoa(int n)
+static void	worker(char *str, int size, long int num)
 {
-	long int	num;
-	int			size;
-	char		*str;
-	int			neg;
+	int	neg;
 
-	num = n;
-	size = check_size(num);
-	str = malloc(size + 1);
-	str[size] = '\0';
 	neg = 0;
+	str[size] = '\0';
 	if (num < 0)
 	{
 		num *= -1;
@@ -54,7 +48,21 @@ char	*ft_itoa(int n)
 		num /= 10;
 		size--;
 	}
-	if (n < 0)
+	if (neg)
 		str[0] = '-';
+}
+
+char	*ft_itoa(int n)
+{
+	long int	num;
+	int			size;
+	char		*str;
+
+	num = n;
+	size = check_size(num);
+	str = malloc(size + 1);
+	if (!str)
+		return (NULL);
+	worker(str, size, num);
 	return (str);
 }

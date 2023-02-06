@@ -1,32 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memcpy.c                                        :+:      :+:    :+:   */
+/*   ft_putnbr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mchiboub <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/02/01 14:29:43 by mchiboub          #+#    #+#             */
-/*   Updated: 2023/02/06 16:27:46 by mchiboub         ###   ########.fr       */
+/*   Created: 2023/02/06 10:44:02 by mchiboub          #+#    #+#             */
+/*   Updated: 2023/02/06 12:01:09 by mchiboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-void	*ft_memcpy(void *dest, const void *src, size_t n)
+static void	write_int(int n, int fd)
 {
-	size_t		i;
-	char		*temp_dest;
-	const char	*temp_src;
+	char	c;
 
-	if (!dest && !src)
-		return (NULL);
-	i = 0;
-	temp_dest = dest;
-	temp_src = src;
-	while (i < n)
+	c = n + 48;
+	write(fd, &c, 1);
+}
+
+static void	ft_putnbr2(long int nb, int fd)
+{
+	if (nb < 0)
 	{
-		temp_dest[i] = temp_src[i];
-		i++;
+		write(fd, "-", 1);
+		nb = nb * -1;
 	}
-	return (dest);
+	if (nb > 9)
+	{
+		ft_putnbr2(nb / 10, fd);
+		write_int(nb % 10, fd);
+	}
+	else
+		write_int(nb, fd);
+}
+
+void	ft_putnbr_fd(int n, int fd)
+{
+	long int	nb;
+
+	nb = n;
+	ft_putnbr2(nb, fd);
 }
