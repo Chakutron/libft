@@ -6,7 +6,7 @@
 /*   By: mchiboub <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/07 17:28:45 by mchiboub          #+#    #+#             */
-/*   Updated: 2023/02/07 17:34:59 by mchiboub         ###   ########.fr       */
+/*   Updated: 2023/02/07 18:47:38 by mchiboub         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
 	t_list	*tmp;
+
 	if (!lst || !f)
 		return ;
 	tmp = lst;
